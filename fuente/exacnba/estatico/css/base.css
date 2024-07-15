@@ -1,0 +1,210 @@
+@import url('/tipografias/bodoni.css');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz@1,6..96&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('/tipografias/material-symbols-outlined.css');
+:root{
+    --color-1-azul: #252b4d;
+    --color-1-celeste: #00b0d7;
+    --color-1-dorado: #d4a540;
+
+    --color-2-celeste: #b2d1d6;
+    --color-2-dorado: #fccb87;
+    
+    --color-3-naranja: #ea8554;
+    --color-3-fucsia: #d50261;
+    --color-3-uva: #5d1646;
+
+    --color-gris-oscuro: #404040;
+    --color-gris-medio: #c9cbd1;
+    --color-gris-claro: #f2f2f2;    
+
+    --color-blanco: #fefefe;
+    --color-negro: #101010;
+    
+    --relacion-aspecto: 1.78;
+    --margen-largo: 5.00;
+    --margen-corto: 8.89;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    z-index: inherit;
+    box-sizing: border-box;
+    color: var(--color-1-azul);
+    background-color: transparent;
+    border: solid 0px var(--color-blanco);
+    font-family: 'Montserrat', sans-serif;
+    transition: all .2s ease-in-out;
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar{
+    display: none;
+}
+
+*[hx-get],*[hx-post],*[hx-delete]{
+    cursor: pointer;
+}
+a:link,a[hx-get]{
+    background-color: transparent;
+    color: var(--color-1-dorado);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:link:hover,a[hx-get]:hover{
+    background-color: var(--color-1-dorado);
+    color: var(--color-1-azul);
+}
+a:link:visited,a[hx-get]:visited{
+    color: var(--color-1-celeste);
+    background-color: transparent;
+}
+
+h1{
+    font-family: 'Bodoni','Bodoni Moda', serif;
+    font-size: 3em;
+    color: var(--color-blanco);
+}
+h2{
+    font-family: 'Bodoni','Bodoni Moda', serif;
+    font-size: 2.5em;
+    color: var(--color-1-azul);
+}
+
+h3{
+    font-family: 'Montserrat';
+    font-weight: bold; 
+    font-style: normal;
+    font-size: 1.5em;
+}
+
+h5{
+    color: var(--color-1-dorado);
+}
+
+i{
+    font-family: 'Montserrat';
+    font-weight: normal; 
+    font-style: italic;
+}
+
+b{
+    font-family: 'Montserrat';
+    font-weight: bold; 
+    font-style: normal;
+}
+
+p{
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+
+@media screen and (max-width:40em){
+    p,div.cuerpo,span.cuerpo,b{
+        font-size: .55em;        
+    }
+
+    h1{
+        font-size: 2.5em;
+    }
+    h2{
+        font-size: 1.75em;
+    }
+    
+    h3{
+        font-size: 1.25em;
+    }
+    h4,h5{
+        font-size: .75em;
+    }
+    .pestana > h4{
+        font-size: .55em;
+    }
+
+    #hecho-por-chaska{
+    grid-area: hecho-por-chaska;
+    justify-self: right;
+    align-self: self-end;
+    & img
+    {
+        max-height: 5vh;
+        min-width: 100px;
+    }
+    /*background-color: pink;*/
+    }
+}
+
+@media screen and (min-width:40em){
+    p,div.cuerpo,span.cuerpo,b{
+        font-size: .55em;        
+    }
+    h1{
+        font-size: 3.5em;
+    }
+    h2{
+        font-size: 2.25em;
+    }
+    
+    h3{
+        font-size: 1.25em;
+    }
+    h4,h5{
+        font-size: 1.25em;
+    }
+    .pestana > h4{
+        font-size: .75em;
+    }
+}
+@media screen and (min-width:60em){
+    p,div.cuerpo,span.cuerpo,b{
+        font-size: .85em;        
+    }
+
+    h1{
+        font-size: 4em;
+    }
+    h2{
+        font-size: 2.5em;
+    }
+}
+@media screen and (min-width:80em){
+    p,div.cuerpo,span.cuerpo,b{
+        font-size: 1.25em;        
+    }
+    h1{
+        font-size: 5em;
+    }
+    h2{
+        font-size: 3em;
+    }
+    
+    h3{
+        font-size: 1.75em;
+    }
+    h4,h5{
+        font-size: 1.75em;
+    }
+    .pestana > h4{
+        font-size: 1.75em;
+    }
+}
+@media screen and (min-width:90em){
+    p,div.cuerpo,span.cuerpo,b{
+        font-size: 1.5em;        
+    }
+}
+
+
+#hecho-por-chaska
+{
+    grid-area: hecho-por-chaska;
+    justify-self: right;
+    align-self: self-end;
+    & img
+    {
+        max-height: 5vh;
+        min-width: 200px;
+    }
+    /*background-color: pink;*/
+}

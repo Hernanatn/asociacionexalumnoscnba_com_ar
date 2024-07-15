@@ -1,0 +1,193 @@
+#inicio{
+    box-sizing: content-box;
+    grid:
+    "banner banner banner" 1fr
+    "asociacion asociacion calendario" 1fr
+    "promociones promociones columna-1" 1fr
+    "columna-2 novedades novedades" 1fr
+    "columna-2 novedades novedades" 1fr
+    "torneo actividades beneficios" 1fr
+    / 1fr 1fr 1fr;
+
+    aspect-ratio: 3/6;
+    max-width: 100vw;
+}
+
+
+#asociacion{ grid-area: asociacion; height: 100%; width: 100%; background-color: var(--color-gris-claro); aspect-ratio: 2/1;
+    grid: 
+    "titulo etiqueta" min-content
+    "cuerpo cuerpo" 1fr
+    ". boton" min-content
+    /1fr fit-content(35%);
+
+    h1{grid-area: titulo;}
+    h5{grid-area: etiqueta; justify-self: right;}
+    p{grid-area: cuerpo; text-overflow: ellipsis;}
+    div.ver-mas{grid-area: boton;
+        font-size: .5em;
+        justify-self: right;}
+
+    align-items: center;
+    aspect-ratio: 2/1;
+    row-gap: 1vh;
+}
+#calendario{grid-area: calendario; height: 100%; width: 100%; background-color: var(--color-1-dorado);}
+#promociones{grid-area: promociones; height: 100%; width: 100%; background-color: var(--color-2-dorado);
+aspect-ratio: 2/1;
+flex-direction: row-reverse;
+align-items: end;
+justify-items: right;
+position: relative;
+}
+
+#actividades{grid-area: actividades; height: 100%; width: 100%; background-color: var(--color-1-celeste);}
+#torneo{grid-area: torneo; height: 100%; width: 100%; background-color: var(--color-1-azul);}
+#beneficios{grid-area: beneficios; height: 100%; width: 100%; background-color: var(--color-3-naranja);}
+
+
+
+
+
+#novedades{grid-area: novedades; height: 100%; width: 100%; background-color: var(--color-gris-claro);
+    display: flex;
+    display: flexbox;
+    flex-direction: column;
+    aspect-ratio: 1/1;
+    & hr{
+        border: solid 1px var(--color-1-azul);
+    }
+    & > div.nota{
+        flex: 1 1 auto;
+        height: fit-content(40%);
+        margin: 15px 0px;
+
+        .resumen-nota{
+            grid: 
+            "titulo titulo" min-content
+            "cuerpo cuerpo" 1fr
+            /1fr fit-content(35%);
+        
+            h3{grid-area: titulo;}
+            div.cuerpo{grid-area: cuerpo; text-overflow: ellipsis;}
+            
+            align-items: center;
+            row-gap: 1vh;
+            width: 100%;
+            
+            & div{
+                
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 7;
+                -webkit-box-orient: vertical;;}
+            }
+        }
+        div.ver-mas{grid-area: boton;
+            font-size: .5em;
+            justify-self: right;
+        }
+}
+
+
+
+#beneficios ,
+#actividades ,
+#torneo {
+
+    min-width: 100px;
+    min-height: 100px;
+    & h3{
+        position: absolute;
+        z-index: 1000;
+        left: 0px;
+        bottom: 35px;
+        width: 100%;
+        text-align: center;
+    }
+    & img{
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+
+    }
+}
+
+#promociones{
+    position: relative;
+    &::before{
+        background-color: var(--color-1-dorado);
+    }
+    &::after{
+        background-color: var(--color-1-dorado);
+    }
+
+    & img{
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 2/1;
+
+    }
+
+    background-color: var(--color-1-dorado) !important;
+}
+#beneficios{
+    &::before{
+        background-color: var(--color-3-naranja);
+    }
+    &::after{
+        background-color: var(--color-3-naranja);
+    }
+
+    background-color: var(--color-3-naranja) !important;
+}
+#actividades{
+    &::before{
+        background-color: var(--color-1-celeste);
+    }
+    &::after{
+        background-color: var(--color-1-celeste);
+    }
+}
+
+@media screen and (max-width:40em){
+
+    #novedades{
+        & > div.nota{
+            & div{
+                line-clamp: 6;
+                -webkit-line-clamp: 6;
+            }           
+            &#nota-2{
+                display: none !important;
+                
+            } 
+        }
+        & hr{
+            border: solid 0px transparent;
+        }
+    }
+    
+}
+
+@media screen and (min-width:40em) {
+    #inicio{
+        padding: 0px 10vw;
+        aspect-ratio: 3/6;
+    }
+
+    
+}
+@media screen and (min-width:60em) {
+    #inicio{
+        padding: 0px 15vw;
+        aspect-ratio: 3/6;
+    }
+}

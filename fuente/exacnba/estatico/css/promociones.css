@@ -1,0 +1,84 @@
+#promociones{
+
+    column-gap: 1vw;
+    margin-bottom: 5vh;
+    margin-top: 2.5vh;
+
+    & #quinquenales,
+    & #habituales{
+        & h1{
+            position: inherit;
+
+            font-size: 5cqh;
+        }
+        position: relative;
+        aspect-ratio: 1/1;
+
+        & * {z-index: 10;}
+
+        mask: radial-gradient(10px at 20px 20px, transparent 98%, black) -20px -20px;
+        min-height: 17vw;
+        min-width: 17vw;
+        max-height: 20vw;
+        max-width: 20vw;
+
+        align-items: center;
+        justify-items: center;
+
+        display: grid;
+
+    }
+
+    & img.fondo{
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+
+        aspect-ratio: 1/1;
+
+    }
+
+    #quinquenales{
+        &::before{
+            background-color: var(--color-1-dorado);
+        }
+        &::after{
+            background-color: var(--color-1-dorado);
+        }
+    }
+
+}
+
+
+
+
+@media screen and (min-width:40em) {
+    #promociones, #titular{
+        padding: 0px 10vw;
+    }
+
+    #banner .zocalo{
+        padding: 2vh 10vw!important;
+    }
+    
+}
+@media screen and (min-width:60em) {
+    #promociones, #titular{
+        padding: 0px 15vw;
+    }
+    #banner .zocalo{
+        padding: 2vh 15vw!important;
+    }
+}
+
+#banner{
+    width: 100vw;
+
+    & .zocalo{
+        padding: 2vh 5vw;
+        background-color: var(--color-1-dorado);
+
+    }
+}

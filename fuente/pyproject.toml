@@ -1,0 +1,33 @@
+[project]
+name = "exacnba"
+version = "0.1"
+dependencies = [
+	"flask",
+	"Flask-Caching",
+	"flask-compress",
+	"Flask-Minify",
+	"pillow",
+	"requests",
+	"mysql-connector-python",
+	"sobrecargar",
+	"solteron"
+]
+authors = [
+  { name="Hernán A.T.N.", email="herni@cajadeideas.ar" },
+]
+readme = "README.md"
+requires-python = ">=3.12"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["exacnba",
+			"exacnba.api",
+			"exacnba.base_de_datos",
+			"exacnba.vistas",
+			"exacnba.vistas.admin",
+			"exacnba.errores",
+			"exacnba.utiles",
+			"exacnba.__pruebas"]

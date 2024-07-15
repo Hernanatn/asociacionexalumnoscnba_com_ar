@@ -1,0 +1,123 @@
+{% extends "/base.html.j2" %}
+        {% block css %}
+        {{ super() }}
+        <link rel="preload" onload="this.rel='stylesheet'" type="text/css" href="{{ url_for('static', filename='{}/inicio.css'.format(servidor.config.get('CSS'))) }}" as="style" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='{}/inicio.css'.format(servidor.config.get('CSS'))) }}" />
+        {% endblock css %}
+
+        {% block js %}
+        {{ super() }}
+        {% endblock js %}
+
+        {% block contenido%}
+        <div class="grilla" id="inicio">
+        <div class="banner flex vertical" id="banner-inicio">
+            <img class="fondo" src="{{ url_for('static', filename='/img/banner-inicio.webp') }}"/>
+            <h1>Asociación de Exalumnos CNBA</h1>
+            <div class="zocalo">
+                <h4>
+                Hermanos en el Aula y en la Vida
+                </h4>
+            </div>
+        </div>
+        <div class="seccion grilla" id="asociacion" 
+            hx-get="/la-asociacion"
+            hx-target="body"
+            hx-swap="outerHTML" 
+            hx-push-url="true"
+            preload      
+        >
+            <h2>
+                La Asociación
+            </h2>
+            <p class="cuerpo">
+                Durante 25 años, los ex alumnos del Colegio Nacional de Buenos Aires de la promoción de 1909 se reunieron anualmente siempre con la idea de formar una asociación que los nucleara.
+            </p>
+            <h4>
+                Historia
+            </h4>
+            <div class="ver-mas flex horizontal">
+            <h5>Ver más</h5>
+            <img src="{{ url_for('static', filename='/img/iconos/flecha-med-der.webp') }}"/> 
+            </div>
+        </div>
+        <div class="seccion" id="calendario"></div>
+        <div class="seccion flex horizontal" id="promociones">
+            <img class="fondo" src="{{ url_for  ('static', filename='/img/secciones/promociones.webp') }}"/>
+
+            <h1>Promociones</h1>
+        </div>
+        <div class="" id="columna-1" style="background: url({{url_for(endpoint='static',filename='/img/iconos/columna-1.png')}});">
+            
+        </div>
+        <div class="" id="columna-2" style="background: url({{url_for(endpoint='static',filename='/img/iconos/columna-2.png')}});">
+            
+        </div>
+        <div class="seccion" id="novedades">
+            <h2>
+                Últimas Novedades
+            </h2>
+            <div class="nota" id="nota-1"
+            hx-get="{// NOVEDADES/NOTA-1 //}"
+            hx-target="body"
+            hx-swap="outerHTML"  
+            > 
+                <article class="resumen-nota">
+                    <h3> {// Nota 1 //}</h3>
+                    <div class="cuerpo">
+                    {// 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales felis diam, ornare suscipit libero hendrerit et. Aliquam sit amet ipsum rhoncus, egestas tortor vitae, lobortis sapien. Ut ac suscipit lectus. Mauris in venenatis metus. Aliquam bibendum tellus tellus, a faucibus quam congue nec. Phasellus eget erat augue. Suspendisse potenti. Quisque eu facilisis nisi. Cras non diam dolor. Vivamus consequat arcu nisi, eu auctor magna tempor eget. Nam eu augue sodales, pellentesque sem non, lacinia est.
+                    //}
+                    </div>
+                </article>
+            </div>
+            <hr>
+            <div class="nota" id="nota-2"
+            hx-get="{// NOVEDADES/NOTA-2 //}"
+            hx-target="body"
+            hx-swap="outerHTML"  
+            > 
+                <article class="resumen-nota">
+                    <h3> {// Nota 2 //}</h3>
+                    <div class="cuerpo">
+                    {// 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales felis diam, ornare suscipit libero hendrerit et. Aliquam sit amet ipsum rhoncus, egestas tortor vitae, lobortis sapien. Ut ac suscipit lectus. Mauris in venenatis metus. Aliquam bibendum tellus tellus, a faucibus quam congue nec. Phasellus eget erat augue. Suspendisse potenti. Quisque eu facilisis nisi. Cras non diam dolor. Vivamus consequat arcu nisi, eu auctor magna tempor eget. Nam eu augue sodales, pellentesque sem non, lacinia est.
+                    //}
+                    </div>
+                </article>
+            </div>
+            <div class="ver-mas flex horizontal"
+            hx-get="/novedades"
+            hx-target="body"
+            hx-swap="outerHTML"  
+            >
+            <h5>Ver más</h5>
+            <img src="{{ url_for('static', filename='/img/iconos/flecha-med-der.webp') }}"/> 
+            </div>
+        </div>
+        <div class="seccion" id="torneo"
+        hx-get="/torneo"
+        hx-target="body"
+        hx-swap="outerHTML"
+        >
+            <h3 style="color: var(--color-blanco);">el Torneo</h3>
+            <img class="fondo" src="{{ url_for('static', filename='/img/secciones/el-torneo.webp') }}"/>
+        </div>
+        <div class="seccion" id="actividades"
+        hx-get="/actividades"
+        hx-target="body"
+        hx-swap="outerHTML"
+        >
+            <h3 style="color: var(--color-blanco);">Actividades</h3>
+            <img class="fondo" src="{{ url_for('static', filename='/img/secciones/actividades.webp') }}"/>
+        </div>
+        <div class="seccion" id="beneficios"
+        hx-get="/beneficios"
+        hx-target="body"
+        hx-swap="outerHTML"
+        >
+            <h3 style="color: var(--color-blanco);">Beneficios</h3>
+            <img class="fondo" src="{{ url_for('static', filename='/img/secciones/beneficios.webp') }}"/>
+        </div>
+        </div>
+        {% endblock contenido%}

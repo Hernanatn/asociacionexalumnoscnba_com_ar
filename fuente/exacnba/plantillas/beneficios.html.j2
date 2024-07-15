@@ -1,0 +1,92 @@
+{% extends "/base.html.j2" %}
+        {% block css %}
+        {{ super() }}
+        <link rel="preload" onload="this.rel='stylesheet'" type="text/css" href="{{ url_for('static', filename='{}/beneficios.css'.format(servidor.config.get('CSS'))) }}" as="style" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='{}/beneficios.css'.format(servidor.config.get('CSS'))) }}" />
+        {% endblock css %}
+
+        {% block js %}
+        {{ super() }}
+        {% endblock js %}
+
+        {% block pestanas %}
+                    <div class="pestana" id="pestana_la-asociacion"
+                    hx-get="/la-asociacion"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload    
+                    > <h4>La Asociación </h4></div>
+                    <div class="pestana" id="pestana_promociones"
+                    hx-get="/promociones"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload  
+                    > <h4>Promociones</h4></div>
+                    <div class="pestana seleccionada" id="pestana_beneficios"
+                    hx-get="/beneficios"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload  > <h4>Beneficios</h4></div>
+                    <div class="pestana" id="pestana_novedades"
+                    hx-get="/promociones"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload  
+                    > <h4>Novedades</h4></div>
+        {% endblock pestanas %}
+        {% block contenido%}
+        <div class="flex vertical" id="banner">
+            <div class="zocalo flex horizontal">
+                <h4>Beneficios</h4><h4 style="font-family: 'Bodoni', serif;">.exa</h4>
+            </div>
+            <img class="fondo" src="{{ url_for('static', filename='/img/banner-inicio.webp') }}"/>
+        </div>
+        <h2 id="titular">Beneficios</h2>
+        <div class="grilla" id="beneficios"
+        hx-ext="morphdom-swap"
+        >
+
+            <div class="flex horizontal" id="cuerpo">
+                <p class="cuerpo" style="margin-right: 1vw;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem </p>
+                <div class="separador vertical"></div>
+            </div>
+
+            <div class="seccion beneficio" id="beneficios-1"
+            hx-get="/promociones/quinquenales"
+            hx-target="body"
+            hx-swap="outerHTML"
+            >
+                <h1 st>Descuentos</h1>
+                <img class="fondo" src="{{ url_for('static', filename='/img/promociones/_quinquenales.png') }}"/>
+            </div>
+            <div class="seccion beneficio" id="beneficios-2"
+            hx-get="/promociones/habituales"
+            hx-target="body"
+            hx-swap="outerHTML"
+            >
+                <h1>Seguros</h1>
+                <img class="fondo" src="{{ url_for('static', filename='/img/promociones/_habituales.png') }}"/>
+            </div>
+            <div class="seccion beneficio" id="beneficios-3"
+            hx-get="/promociones/quinquenales"
+            hx-target="body"
+            hx-swap="outerHTML"
+            >
+                <h1 st>Opticas</h1>
+                <img class="fondo" src="{{ url_for('static', filename='/img/promociones/_quinquenales.png') }}"/>
+            </div>
+            <div class="seccion beneficio" id="beneficios-4"
+            hx-get="/promociones/habituales"
+            hx-target="body"
+            hx-swap="outerHTML"
+            >
+                <h1>Otros</h1>
+                <img class="fondo" src="{{ url_for('static', filename='/img/promociones/_habituales.png') }}"/>
+            </div>
+
+        </div>
+        {% endblock contenido%}

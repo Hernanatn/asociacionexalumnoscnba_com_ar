@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head hx-head="merge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Asociación de Exalumnos del Colegio Nacional de Buenos Aires."/>
+        <meta name="og:description" content="Asociación de Exalumnos del Colegio Nacional de Buenos Aires."/>
+
+        <title>{% block titulo %}exa.Cnba{% endblock titulo %}</title>
+        {% block css %}
+        <link rel="preload" onload="this.rel='stylesheet'" type="text/css" href="{{ url_for('static', filename='{}/base.css'.format(servidor.config.get('CSS'))) }}" as="style" />
+        <link hx-preserve="true" rel="stylesheet" type="text/css" href="{{ url_for('static', filename='{}/base.css'.format(servidor.config.get('CSS'))) }}" />
+        <link rel="preload" onload="this.rel='stylesheet'" type="text/css" href="{{ url_for('static', filename='{}/estilos.css'.format(servidor.config.get('CSS'))) }}" as="style" />
+        <link hx-preserve="true" rel="stylesheet" type="text/css" href="{{ url_for('static', filename='{}/estilos.css'.format(servidor.config.get('CSS'))) }}" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz@1,6..96&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        {% endblock css %}
+
+        {% block js %}
+        <script hx-preserve="true" src="https://unpkg.com/htmx.org@1.9.6"></script>
+        <script hx-preserve="true" src="https://unpkg.com/htmx.org/dist/ext/preload.js"></script>
+        <script hx-preserve="true" src="https://unpkg.com/htmx.org@1.9.12/dist/ext/head-support.js"></script>
+        <script hx-preserve="true" src="https://unpkg.com/htmx.org/dist/ext/morphdom-swap.js"></script>
+        <script hx-preserve="true" src="https://kit.fontawesome.com/271b67c157.js" crossorigin="anonymous"></script>
+
+        <script src="{{ url_for('static', filename='js/utiles.js') }}"></script>
+        {% endblock js %}
+    </head>
+    <body hx-ext="morphdom-swap,preload,head-support" hx-indicator="#indicador-cargando-mensaje">
+        <div id="contenedor-principal" class="contenedor grilla">
+            <header class="flex horizontal">
+                <img loading="lazy"src="{{ url_for('static', filename='img/logos/_logo-exa-h--escudo-color.png') }}" style="max-height: ;"
+                hx-get="/"
+                hx-target="body"
+                hx-swap="morphdom"
+                hx-push-url="/"
+                />
+                <div id="pestanas" class="flex horizontal pestanas">
+                {% block pestanas %}
+                    <div class="pestana" id="pestana_la-asociacion"
+                    hx-get="/la-asociacion"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload    
+                    > <h4>La Asociación </h4></div>
+                    <div class="pestana" id="pestana_promociones"
+                    hx-get="/promociones"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload  
+                    > <h4>Promociones</h4></div>
+                    <div class="pestana" id="pestana_beneficios"
+                    hx-get="/beneficios"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload  > <h4>Beneficios</h4></div>
+                    <div class="pestana" id="pestana_novedades"
+                    hx-get="/promociones"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload  
+                    > <h4>Novedades</h4></div>
+                {% endblock pestanas %}
+                </div>
+                <button class="boton" style="justify-self: right; margin-top:1vh;">
+                        <h1 style="font-size: xx-large;">Asociate</h1>
+                </button>
+            </header>
+            <div class="grilla" id="contenido">
+            {% block contenido required%}
+            {% endblock contenido%}
+            </div>
+            <footer class="grilla">
+                <div class="flex vertical" id="info-footer">
+                    <img loading="lazy"src="{{ url_for('static', filename='img/logos/_logo-exa-h-color.png') }}"/>
+                    <h3>Moreno 590</h3>
+                    <h4>Ciudad de Buenos Aires</h4>
+                    <b>aexcnba@aexcnba.com.ar</b>
+                    <b>11  5238-1806/07</b>
+                    <br>
+                    <div id="redes-sociales">
+                        <h2>Redes Sociales</h2>
+                    </div>
+                </div>
+                <div class="flex vertical" id="contacto-footer">
+                    <h2>Contacto</h2>
+                    <i>Atención al HAV</i>
+                    <br>
+                    <form name="contacto" id="contacto"
+                    hx-post="/contacto"
+                    hx-target="this"
+                    hx-swap="outerHTML"
+                    class="grilla"
+                    >
+                        <div class="caja input">
+                            <input type="text" name="nombre" id="nombre"/>
+                            <label for="nombre"> Nombre </label>
+                        </div>
+                        <div class="caja input">
+                            <input type="year" name="promocion" id="promocion"/>
+                            <label for="promocion"> Promoción </label>
+                        </div>
+                        <div class="caja input">
+                            <input type="email" name="correo" id="correo"/>
+                            <label for="correo"> Correo </label>
+                        </div>
+                        <div class="caja input">
+                            <input type="phone" name="telefono" id="telefono"/>
+                            <label for="telefono"> Teléfono </label>
+                        </div>
+                        <div class="caja input larga">
+                            <input type="text" name="consulta" id="consulta"/>
+                            <label for="consulta"> Motivo del Contacto </label>
+                        </div>
+                        <button type="submit" class="boton cta" style="justify-self: center; margin-top:1vh;">
+                        <h1>Enviar</h1>
+                        </button>
+                    </form>
+                </div>
+                <div class="seccion-pie-pagina">
+                    <b>Asociación de Ex Alumnos del Colegio Nacional de Buenos Aires.</b> 
+                    <br>
+                    <i style="font-size: x-small;">
+                    Sitio Desarrollado por Ch'aska S.R.L. (c) 2024. Todos los derechos reservados. 
+                    </i>
+                </div>
+                <div class="seccion-pie-pagina"     id="hecho-por-chaska">
+                    <a href="https://cajadeideas.ar"><img loading="lazy"src="{{ url_for('static', filename='img/logos/hecho_por_chaska.svg') }}"/></a>
+                </div>
+            </footer>
+        </div>
+        <div class="flotante indicador-hx flex horizontal" id="indicador-cargando-mensaje" style="padding: 2vh 1vw;" class="indicador-hx">
+            <img src="{{ url_for('static', filename='img/iconos/exa.gif')}}"/>
+            <h3>Cargando</h3>
+        </div>
+    </body>
+</html>

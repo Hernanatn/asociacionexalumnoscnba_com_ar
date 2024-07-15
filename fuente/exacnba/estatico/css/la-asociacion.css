@@ -1,0 +1,67 @@
+#asociacion{
+    grid:
+    "cuerpo cuerpo columna-2" 1fr
+    "historia historia columna-2" 1fr
+    "estatutos estatutos estatutos" min-content
+    "comision comision comision" min-content
+    / 1fr 1fr 1fr;
+
+
+    & #cuerpo{grid-area:cuerpo; aspect-ratio: 2/1;
+    padding: 5vh 0px;
+    }
+    & #columna-2{grid-area:columna-2; aspect-ratio: 1/2;}
+    & #historia{grid-area:historia; aspect-ratio: 2/1;
+    position: relative;
+    & * {z-index: 1;}
+    padding: 2vh 2vw;
+    flex-direction: row-reverse;
+    justify-items: right;
+    align-items: end;
+    & img.fondo{
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 2/1;
+
+    }
+    }
+    & #estatutos{grid-area:estatutos}
+    & #comision{grid-area:comision}
+}
+
+
+@media screen and (max-width:40em) {
+    #asociacion #cuerpo{
+        padding: 5vh 5vw;
+    }
+}
+@media screen and (min-width:40em) {
+    #asociacion{
+        padding: 0px 10vw;
+    }
+
+    #banner_asociacion .zocalo{
+        padding: 2vh 10vw!important;
+    }
+    
+}
+@media screen and (min-width:60em) {
+    #asociacion{
+        padding: 0px 15vw;
+    }
+    #banner_asociacion .zocalo{
+        padding: 2vh 15vw!important;
+    }
+}
+
+#banner_asociacion{
+    width: 100vw;
+
+    & .zocalo{
+        padding: 2vh 5vw;
+
+    }
+}

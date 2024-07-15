@@ -1,0 +1,8 @@
+__pycache__*
+__prueba*
+dist
+build
+*.egg-info
+*.sql
+secretos
+token_github

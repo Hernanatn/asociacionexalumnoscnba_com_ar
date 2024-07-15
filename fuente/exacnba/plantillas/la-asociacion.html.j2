@@ -1,0 +1,89 @@
+{% extends "/base.html.j2" %}
+        {% block css %}
+        {{ super() }}
+        <link rel="preload" onload="this.rel='stylesheet'" type="text/css" href="{{ url_for('static', filename='{}/la-asociacion.css'.format(servidor.config.get('CSS'))) }}" as="style" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='{}/la-asociacion.css'.format(servidor.config.get('CSS'))) }}" />
+        {% endblock css %}
+
+        {% block js %}
+        {{ super() }}
+        {% endblock js %}
+
+        {% block pestanas %}
+                    <div class="pestana seleccionada" id="pestana_la-asociacion"
+                    hx-get="/la-asociacion"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload    
+                    > <h4>La Asociación </h4></div>
+                    <div class="pestana" id="pestana_promociones"
+                    hx-get="/promociones"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload  
+                    > <h4>Promociones</h4></div>
+                    <div class="pestana" id="pestana_beneficios"
+                    hx-get="/beneficios"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload  > <h4>Beneficios</h4></div>
+                    <div class="pestana" id="pestana_novedades"
+                    hx-get="/promociones"
+                    hx-target="body"
+                    hx-swap="morphdom" 
+                    hx-push-url="true"
+                    preload  
+                    > <h4>Novedades</h4></div>
+        {% endblock pestanas %}
+        {% block contenido%}
+        <div class="flex vertical" id="banner_asociacion">
+            <div class="zocalo flex horizontal">
+                <h4>Asociación</h4><h4 style="font-family: 'Bodoni', serif;">.exa</h4>
+            </div>
+        </div>
+        <div class="grilla" id="asociacion"
+        hx-ext="morphdom-swap"
+        >
+            <div class="flex vertical" id="cuerpo" >
+            <p class="cuerpo">
+                Durante 25 años, los ex alumnos del Colegio Nacional de Buenos Aires de la promoción de 1909 se reunieron anualmente siempre con la idea de formar una asociación que los nucleara.
+            </p>
+            </div>
+            <div class="flex horizontal" id="historia">
+                <img class="fondo" src="{{ url_for  ('static', filename='/img/la-asociacion/historia.webp') }}"/>
+                <h1>Historia</h1>
+            </div>
+            <div class="" id="columna-2" style="background: url({{url_for(endpoint='static',filename='/img/iconos/columna-2.png')}});">
+            </div>
+            <div class="flex horizontal desplegable" id="estatutos">
+                <h2>
+                    Estatutos y Régimen Electoral
+                </h2>
+                <div class="ver-mas flex horizontal"
+                hx-get="/la-asociacion/expandir-estatutos"
+                hx-target="estatutos"
+                hx-swap="morphdom"  
+                >
+                <img src="{{ url_for('static', filename='/img/iconos/_flecha-min-mas.png') }}"/> 
+                </div>
+            </div>
+            <div class="flex horizontal desplegable" id="comision">
+                <h2>
+                    Comisión Directiva
+                </h2>
+                <div class="ver-mas flex horizontal"
+                hx-get="/la-asociacion/expandir-comision"
+                hx-target="comision"
+                hx-swap="morphdom"  
+                >
+                <img src="{{ url_for('static', filename='/img/iconos/_flecha-min-mas.png') }}"/> 
+                </div>
+            </div>
+            <br>
+
+
+        </div>
+        {% endblock contenido%}
