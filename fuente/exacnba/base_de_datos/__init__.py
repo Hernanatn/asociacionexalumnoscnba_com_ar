@@ -1,14 +1,14 @@
 from collections import namedtuple
 
 from mysql.connector import connect
-from mysql.connector.pooling import MySQLConnectionPool as ConexionesMultiplesMySQL, PooledMySQLConnection as ConexionMySQL, CNX_POOL_MAXSIZE, PoolError 
+from mysql.connector.pooling import MySQLConnectionPool as ConexionesMultiplesMySQL, PooledMySQLConnection as ConexionMySQL, CNX_POOL_MAXSIZE#, PoolError 
 from mysql.connector.cursor import MySQLCursorBufferedDict, MySQLCursorBufferedNamedTuple
 from mysql.connector.errors import DatabaseError as ErrorMySQL
 from solteron import Solteron
 #from exacnba.base_de_datos.tipos import * 
 from exacnba.base_de_datos.errores import *
 import os
-from typing import Optional,Self,Dict,Any,List
+from typing import Optional,Dict,Any,List#,Self
 
 CursorMySQL = MySQLCursorBufferedDict | MySQLCursorBufferedNamedTuple
 
@@ -123,7 +123,7 @@ class BaseDeDatos():
 
         return self.__cursor
 
-    def conectar(self) -> Self:
+    def conectar(self) :#-> Self:
         """
         Establece una conexión en pool con el servidor MySQL y recupera una conexión individual.
         ### Devuelve:
@@ -155,8 +155,8 @@ class BaseDeDatos():
                             **self.__config.PARAMETROS_CONEXION,
                         )
                 self.__conexion = self.__pool.get_connection()
-            except PoolError as e: 
-                raise ErrorPoolLlena(f"No se pudo crear la Conexión {e}. Pool llena.")
+            #except PoolError as e: 
+            #    raise ErrorPoolLlena(f"No se pudo crear la Conexión {e}. Pool llena.")
             except ErrorMySQL as f: 
                 self.reconectar()
                 #return self.conectar()
@@ -167,7 +167,7 @@ class BaseDeDatos():
 
         return self
 
-    def ejecutar(self, consultaSQL : str, multiconsulta : bool = True) -> Self:
+    def ejecutar(self, consultaSQL : str, multiconsulta : bool = True):# -> Self:
         """
         Ejecuta y *commitea* la consulta provista y devuelve el ``cursor`` para manejar los resultados.
         ### Parámetros:
@@ -223,7 +223,7 @@ class BaseDeDatos():
             del self.__conexion
             self.__conexion = None
     
-    def reconectar(self) -> Self:
+    def reconectar(self):# -> Self:
         self.__matar()
         if self.__config is None : 
             match os.environ.get('CDD_AMBIENTE'):

@@ -3,7 +3,7 @@ from flask.wrappers import Request, Response
 from jinja2.exceptions import UndefinedError
 from werkzeug.datastructures import Headers
 
-from http import HTTPStatus, HTTPMethod
+#from http import HTTPStatus, HTTPMethod
 from mimetypes import guess_type
 
 from markupsafe import escape
