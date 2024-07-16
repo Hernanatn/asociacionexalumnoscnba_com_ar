@@ -42,7 +42,13 @@
             </div>
         </div>
         <div class="seccion" id="calendario"></div>
-        <div class="seccion flex horizontal" id="promociones">
+        <div class="seccion flex horizontal" id="promociones"
+        hx-get="/promociones"
+        hx-target="#contenido"
+        hx-select="#contenido"
+        hx-swap="outerHTML morphdom" 
+        hx-push-url="true"
+        >
             <img class="fondo" src="{{ url_for  ('static', filename='/img/secciones/promociones.webp') }}"/>
 
             <h1>Promociones</h1>

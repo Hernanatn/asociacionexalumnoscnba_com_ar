@@ -34,6 +34,20 @@
 
 
 @media screen and (max-width:40em) {
+
+    #principal{
+        grid:
+        "historia columna-2" 1fr
+        "cuerpo columna-2" 1fr
+        "estatutos columna-2" min-content
+        "comision columna-2" min-content
+        / 1fr 0px;
+    }
+    & #collumna-2{
+        display: none;
+        width: 0px;
+        height: 0px;
+    }
     #principal #cuerpo{
         padding: 5vh 5vw;
     }
