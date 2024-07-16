@@ -52,7 +52,28 @@
 }
 
 
+@media screen and (max-width:40em) {
 
+    #principal{
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 0vh 2.5vw;
+        justify-items: center;
+
+        & #quinquenales,
+        & #habituales{
+            & * {
+                max-width: 250px;
+                max-height: 250px;
+            }
+            max-width: 250px;
+            max-height: 250px;
+        }
+    }
+    #principal #cuerpo{
+        padding: 2vh 5vw;
+    }
+}
 
 @media screen and (min-width:40em) {
     #principal, #titular{

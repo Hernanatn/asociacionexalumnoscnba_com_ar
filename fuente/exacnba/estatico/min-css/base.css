@@ -35,6 +35,10 @@
     font-family: 'Montserrat', sans-serif;
     transition: all .35s ease-in-out;
     scrollbar-width: none;
+
+    max-width: 100vw;
+    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 *::-webkit-scrollbar{

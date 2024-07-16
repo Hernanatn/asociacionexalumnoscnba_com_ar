@@ -57,7 +57,25 @@
 }
 
 
+@media screen and (max-width:40em) {
 
+    #principal{
+        grid-template-columns: 1fr;
+        margin: 0vh 2.5vw;
+
+        & .beneficio{
+            & * {
+                max-width: 250px;
+                max-height: 250px;
+            }
+            max-width: 250px;
+            max-height: 250px;
+        }
+    }
+    #principal #cuerpo{
+        padding: 0vh 5vw;
+    }
+}
 
 @media screen and (min-width:40em) {
     #principal{
