@@ -1,0 +1,9 @@
+	flask
+	Flask-Caching
+	flask-compress
+	Flask-Minify
+	pillow
+	requests
+	mysql-connector-python
+	sobrecargar
+	solteron
