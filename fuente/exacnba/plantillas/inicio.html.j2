@@ -95,14 +95,12 @@
             <img src="{{ url_for('static', filename='/img/iconos/flecha-med-der.webp') }}"/> 
             </div>
         </div>
-        <div class="seccion" id="torneo"
-        hx-get="/torneo"
-        hx-target="body"
-        hx-swap="outerHTML"
-        >
+        <a class="seccion" id="torneo" 
+         href="https://torneo.exalumnoscnba.com.ar/" target="_blank">
             <h3 style="color: var(--color-blanco);">el Torneo</h3>
             <img class="fondo" src="{{ url_for('static', filename='/img/secciones/el-torneo.webp') }}"/>
-        </div>
+        </a>
+
         <div class="seccion" id="actividades"
         hx-get="/actividades"
         hx-target="body"

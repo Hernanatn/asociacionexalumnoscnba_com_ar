@@ -1,0 +1,30 @@
+<form name="contacto" id="contacto"
+                    hx-post="/contacto"
+                    hx-target="this"
+                    hx-swap="outerHTML"
+                    class="grilla"
+                    >
+                        <div class="caja input">
+                            <input type="text" name="nombre" id="nombre"/>
+                            <label for="nombre"> Nombre </label>
+                        </div>
+                        <div class="caja input">
+                            <input type="year" name="promocion" id="promocion"/>
+                            <label for="promocion"> Promoción </label>
+                        </div>
+                        <div class="caja input">
+                            <input type="email" name="correo" id="correo"/>
+                            <label for="correo"> Correo </label>
+                        </div>
+                        <div class="caja input">
+                            <input type="phone" name="telefono" id="telefono"/>
+                            <label for="telefono"> Teléfono </label>
+                        </div>
+                        <div class="caja input larga">
+                            <input type="text" name="consulta" id="consulta"/>
+                            <label for="consulta"> Motivo del Contacto </label>
+                        </div>
+                        <button type="submit" class="boton cta" style="justify-self: center; margin-top:1vh;">
+                        <h1>Enviar</h1>
+                        </button>
+                    </form>

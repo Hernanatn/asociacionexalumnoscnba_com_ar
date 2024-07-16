@@ -21,7 +21,7 @@ from collections import namedtuple
 from exacnba import servidor
 
 
-
+#PAGINAS
 @servidor.route("/")
 def inicio():
     return renderizarPlantilla("/inicio.html.j2")
@@ -34,3 +34,18 @@ def promociones():
 @servidor.route("/beneficios")
 def beneficios():
     return renderizarPlantilla("/beneficios.html.j2")
+@servidor.route("/actividades")
+def actividades():
+    return renderizarPlantilla("/actividades.html.j2")
+@servidor.route("/novedades")
+def novedades():
+    return renderizarPlantilla("/novedades.html.j2")
+
+
+#CONTACTO
+@servidor.route("/contacto", methods=["GET"])
+def contactoGET():
+    return renderizarPlantilla("/parciales/contactoBase.html.j2")
+@servidor.route("/contacto", methods=["POST"])
+def contactoPOST():
+    return renderizarPlantilla("/parciales/contactoCorrecto.html.j2")

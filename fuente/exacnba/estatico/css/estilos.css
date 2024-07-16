@@ -512,7 +512,11 @@ padding: var(--margen-corto)vh var(--margen-largo)vw;
     position: relative;
     display: flex;
     flex-direction: row;
+    column-gap: 1vw;
     padding: 1vh 2vw;
+    & * {
+        z-index:10;
+    }
     &::after{
         transition: all .35s ease-in-out;
         z-index: 2;
@@ -552,6 +556,12 @@ padding: var(--margen-corto)vh var(--margen-largo)vw;
             transform: translate(0px,0px);
         }
 
+    }
+
+    span.material-symbols-outlined{
+        font-size: 30px;
+        align-self: center;
+        color: var(--color-blanco);
     }
 }
 .boton.cta{

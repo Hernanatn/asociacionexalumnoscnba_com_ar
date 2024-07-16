@@ -1,8 +1,8 @@
 {% extends "/base.html.j2" %}
         {% block css %}
         {{ super() }}
-        <link rel="preload" onload="this.rel='stylesheet'" type="text/css" href="{{ url_for('static', filename='{}/beneficios.css'.format(servidor.config.get('CSS'))) }}" as="style" />
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='{}/beneficios.css'.format(servidor.config.get('CSS'))) }}" />
+        <link rel="preload" onload="this.rel='stylesheet'" type="text/css" href="{{ url_for('static', filename='{}/actividades.css'.format(servidor.config.get('CSS'))) }}" as="style" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='{}/actividades.css'.format(servidor.config.get('CSS'))) }}" />
         {% endblock css %}
 
         {% block js %}
@@ -13,11 +13,11 @@
         {% block contenido%}
         <div class="flex vertical" id="banner">
             <div class="zocalo flex horizontal">
-                <h4>Beneficios</h4><h4 style="font-family: 'Bodoni', serif;">.exa</h4>
+                <h4>Actividades</h4><h4 style="font-family: 'Bodoni', serif;">.exa</h4>
             </div>
             <img class="fondo" src="{{ url_for('static', filename='/img/banner-inicio.webp') }}"/>
         </div>
-        <h2 id="titular">Beneficios</h2>
+        <h2 id="titular">Actividades</h2>
         <div class="grilla" id="principal"
         hx-ext="morphdom-swap"
         >
@@ -27,33 +27,27 @@
                 <div class="separador vertical"></div>
             </div>
 
-            <div class="seccion beneficio" id="beneficios-1"
+            <div class="seccion actividad" id="actividades-1"
             >
                 <h1 st>Descuentos</h1>
                 <img class="fondo" src="{{ url_for('static', filename='/img/promociones/_quinquenales.png') }}"/>
             </div>
-            <div class="seccion beneficio" id="beneficios-2"
+            <div class="seccion actividad" id="actividades-2"
             >
                 <h1>Seguros</h1>
                 <img class="fondo" src="{{ url_for('static', filename='/img/promociones/_habituales.png') }}"/>
             </div>
-            <div class="seccion beneficio" id="beneficios-3"
+            <div class="seccion actividad" id="actividades-3"
             >
                 <h1 st>Opticas</h1>
                 <img class="fondo" src="{{ url_for('static', filename='/img/promociones/_quinquenales.png') }}"/>
             </div>
-            <div class="seccion beneficio" id="beneficios-4"
+            <div class="seccion actividad" id="actividades-4"
             >
                 <h1>Otros</h1>
                 <img class="fondo" src="{{ url_for('static', filename='/img/promociones/_habituales.png') }}"/>
             </div>
-            <button class="boton" id="a"
-            >
-                <span class="material-symbols-outlined">
-                    qr_code
-                </span>
-                <h1>Usá tu QR</h1>
-            </div>
+
 
         </div>
         {% endblock contenido%}
