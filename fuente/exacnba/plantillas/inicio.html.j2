@@ -22,8 +22,9 @@
         </div>
         <div class="seccion grilla" id="asociacion" 
             hx-get="/la-asociacion"
-            hx-target="body"
-            hx-swap="outerHTML" 
+            hx-target="#contenido"
+            hx-select="#contenido"
+            hx-swap="morphdom window:top" 
             hx-push-url="true"
             preload      
         >
@@ -46,7 +47,7 @@
         hx-get="/promociones"
         hx-target="#contenido"
         hx-select="#contenido"
-        hx-swap="outerHTML morphdom" 
+        hx-swap="outerHTML window:top" 
         hx-push-url="true"
         >
             <img class="fondo" src="{{ url_for  ('static', filename='/img/secciones/promociones.webp') }}"/>

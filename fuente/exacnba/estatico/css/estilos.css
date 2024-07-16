@@ -12,6 +12,7 @@
 }
 
 html{
+    max-width: 100vw;
     width: 100%;
     height: 100%;
     color: var(--color-1-azul);
@@ -26,7 +27,6 @@ body{
     overflow-y: scroll;
     min-width: 100vw;
     max-width: 100vw;
-    min-height: 100vh;
     width: 100%;
     height: 100%;
 }
@@ -647,6 +647,11 @@ padding: var(--margen-corto)vh var(--margen-largo)vw;
 
 
 .separador{
+    overflow: visible;
+    & * {
+        overflow: visible;
+    }
+    
     border: solid 0px var(--color-1-dorado);
     position: relative;
     &::before{
@@ -672,6 +677,7 @@ padding: var(--margen-corto)vh var(--margen-largo)vw;
     &.vertical{
         width: 2px;
         border-right-width: 2px;
+        margin: 0vh 1vw;
         &::before{
             top: 0px;
             right: -6px;
@@ -682,7 +688,8 @@ padding: var(--margen-corto)vh var(--margen-largo)vw;
         }
         
     }
-    &.flex.horizontal{
+    &.horizontal{
+        margin: 1vh 0vw;
         &::before{
             right: 0px;
             top: -6px;

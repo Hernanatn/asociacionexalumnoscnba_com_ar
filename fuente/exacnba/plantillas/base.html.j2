@@ -41,7 +41,7 @@
                     hx-get="/la-asociacion"
                     hx-target="#contenido"
                     hx-select="#contenido"
-                    hx-swap="outerHTML morphdom" 
+                    hx-swap="outerHTML window:top" 
                     hx-push-url="true"
                     hx-on:click="htmx.findAll('.pestana.seleccionada').forEach((e) =>{htmx.removeClass(e,'seleccionada')});htmx.addClass(this,'seleccionada')"
                     preload    
@@ -50,7 +50,7 @@
                     hx-get="/promociones"
                     hx-target="#contenido"
                     hx-select="#contenido"
-                    hx-swap="outerHTML morphdom" 
+                    hx-swap="outerHTML window:top" 
                     hx-push-url="true"
                     hx-on:click="htmx.findAll('.pestana.seleccionada').forEach((e) =>{htmx.removeClass(e,'seleccionada')});htmx.addClass(this,'seleccionada')"
                     preload  
@@ -59,7 +59,7 @@
                     hx-get="/beneficios"
                     hx-target="#contenido"
                     hx-select="#contenido"
-                    hx-swap="outerHTML morphdom" 
+                    hx-swap="outerHTML window:top" 
                     hx-push-url="true"
                     hx-on:click="htmx.findAll('.pestana.seleccionada').forEach((e) =>{htmx.removeClass(e,'seleccionada')});htmx.addClass(this,'seleccionada')"
                     preload  > <h4>Beneficios</h4></div>
@@ -67,7 +67,7 @@
                     hx-get="/novedades"
                     hx-target="#contenido"
                     hx-select="#contenido"
-                    hx-swap="outerHTML morphdom" 
+                    hx-swap="outerHTML window:top" 
                     hx-push-url="true"
                     hx-on:click="htmx.findAll('.pestana.seleccionada').forEach((e) =>{htmx.removeClass(e,'seleccionada')});htmx.addClass(this,'seleccionada')"
                     preload  
