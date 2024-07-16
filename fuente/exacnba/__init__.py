@@ -32,6 +32,12 @@ def devolverBDD() -> BaseDeDatos:
     return g.bdd
 
 
+@servidor.before_request
+def staging():
+    if os.environ.get('EXACNBA_AMBIENTE') == 'STAGING':
+        if 'exacnba' not in solicitud.path:
+            redireccionar(f'/exacnba/{solicitud.path}')
+
 servidor.jinja_env.globals.update(servidor=servidor)
 
 from exacnba.vistas import *
