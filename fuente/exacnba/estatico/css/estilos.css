@@ -383,6 +383,7 @@ footer{
         color: var(--color-blanco);
     }
     background-color: var(--color-1-azul);
+    transition: background-color .5s ease-in-out, height .35s ease-in-out;
 }
 
 .desplegable{
@@ -513,7 +514,7 @@ padding: var(--margen-corto)vh var(--margen-largo)vw;
     flex-direction: row;
     padding: 1vh 2vw;
     &::after{
-        transition: all .2s ease-in-out;
+        transition: all .35s ease-in-out;
         z-index: 2;
         position: absolute;
         content: '';
@@ -534,7 +535,7 @@ padding: var(--margen-corto)vh var(--margen-largo)vw;
             width: 100%;
             background-color: var(--color-1-dorado);
             mask: radial-gradient(10px at 20px 20px, transparent 98%, black) -20px -20px;
-            transition: all .2s ease-in-out;
+            transition: all .35s ease-in-out;
         }
 
     &:hover{        
@@ -683,4 +684,8 @@ padding: var(--margen-corto)vh var(--margen-largo)vw;
 
 #titular{
     margin-top: 2.5vh;
+}
+
+#principal{
+    transition: all .35s ease-in-out;
 }

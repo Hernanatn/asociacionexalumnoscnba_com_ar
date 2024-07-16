@@ -33,7 +33,7 @@
     background-color: transparent;
     border: solid 0px var(--color-blanco);
     font-family: 'Montserrat', sans-serif;
-    transition: all .2s ease-in-out;
+    transition: all .35s ease-in-out;
     scrollbar-width: none;
 }
 

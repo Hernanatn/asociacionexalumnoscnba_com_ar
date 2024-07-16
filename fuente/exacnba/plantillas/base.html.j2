@@ -8,9 +8,9 @@
 
         <title>{% block titulo %}exa.Cnba{% endblock titulo %}</title>
         {% block css %}
-        <link rel="preload" onload="this.rel='stylesheet'" type="text/css" href="{{ url_for('static', filename='{}/base.css'.format(servidor.config.get('CSS'))) }}" as="style" />
+        <link rel="preload"  hx-preserve="true" onload="this.rel='stylesheet'" type="text/css" href="{{ url_for('static', filename='{}/base.css'.format(servidor.config.get('CSS'))) }}" as="style" />
         <link hx-preserve="true" rel="stylesheet" type="text/css" href="{{ url_for('static', filename='{}/base.css'.format(servidor.config.get('CSS'))) }}" />
-        <link rel="preload" onload="this.rel='stylesheet'" type="text/css" href="{{ url_for('static', filename='{}/estilos.css'.format(servidor.config.get('CSS'))) }}" as="style" />
+        <link rel="preload"  hx-preserve="true" onload="this.rel='stylesheet'" type="text/css" href="{{ url_for('static', filename='{}/estilos.css'.format(servidor.config.get('CSS'))) }}" as="style" />
         <link hx-preserve="true" rel="stylesheet" type="text/css" href="{{ url_for('static', filename='{}/estilos.css'.format(servidor.config.get('CSS'))) }}" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
         <script hx-preserve="true" src="https://unpkg.com/htmx.org@1.9.6"></script>
         <script hx-preserve="true" src="https://unpkg.com/htmx.org/dist/ext/preload.js"></script>
         <script hx-preserve="true" src="https://unpkg.com/htmx.org@1.9.12/dist/ext/head-support.js"></script>
-        <script hx-preserve="true" src="https://unpkg.com/htmx.org/dist/ext/morphdom-swap.js"></script>
+        <script hx-preserve="true" src="https://unpkg.com/htmx.org@1.9.12/dist/ext/morphdom-swap.js"></script>
         <script hx-preserve="true" src="https://kit.fontawesome.com/271b67c157.js" crossorigin="anonymous"></script>
 
         <script src="{{ url_for('static', filename='js/utiles.js') }}"></script>
@@ -33,39 +33,45 @@
                 <img loading="lazy"src="{{ url_for('static', filename='img/logos/_logo-exa-h--escudo-color.png') }}" style="max-height: ;"
                 hx-get="/"
                 hx-target="body"
-                hx-swap="morphdom"
+                hx-swap="outerHTML morphdom"
                 hx-push-url="/"
                 />
                 <div id="pestanas" class="flex horizontal pestanas">
-                {% block pestanas %}
                     <div class="pestana" id="pestana_la-asociacion"
                     hx-get="/la-asociacion"
-                    hx-target="body"
-                    hx-swap="morphdom" 
+                    hx-target="#contenido"
+                    hx-select="#contenido"
+                    hx-swap="outerHTML morphdom" 
                     hx-push-url="true"
+                    hx-on:click="htmx.findAll('.pestana.seleccionada').forEach((e) =>{htmx.removeClass(e,'seleccionada')});htmx.addClass(this,'seleccionada')"
                     preload    
                     > <h4>La Asociación </h4></div>
                     <div class="pestana" id="pestana_promociones"
                     hx-get="/promociones"
-                    hx-target="body"
-                    hx-swap="morphdom" 
+                    hx-target="#contenido"
+                    hx-select="#contenido"
+                    hx-swap="outerHTML morphdom" 
                     hx-push-url="true"
+                    hx-on:click="htmx.findAll('.pestana.seleccionada').forEach((e) =>{htmx.removeClass(e,'seleccionada')});htmx.addClass(this,'seleccionada')"
                     preload  
                     > <h4>Promociones</h4></div>
                     <div class="pestana" id="pestana_beneficios"
                     hx-get="/beneficios"
-                    hx-target="body"
-                    hx-swap="morphdom" 
+                    hx-target="#contenido"
+                    hx-select="#contenido"
+                    hx-swap="outerHTML morphdom" 
                     hx-push-url="true"
+                    hx-on:click="htmx.findAll('.pestana.seleccionada').forEach((e) =>{htmx.removeClass(e,'seleccionada')});htmx.addClass(this,'seleccionada')"
                     preload  > <h4>Beneficios</h4></div>
                     <div class="pestana" id="pestana_novedades"
-                    hx-get="/promociones"
-                    hx-target="body"
-                    hx-swap="morphdom" 
+                    hx-get="/novedades"
+                    hx-target="#contenido"
+                    hx-select="#contenido"
+                    hx-swap="outerHTML morphdom" 
                     hx-push-url="true"
+                    hx-on:click="htmx.findAll('.pestana.seleccionada').forEach((e) =>{htmx.removeClass(e,'seleccionada')});htmx.addClass(this,'seleccionada')"
                     preload  
                     > <h4>Novedades</h4></div>
-                {% endblock pestanas %}
                 </div>
                 <button class="boton" style="justify-self: right; margin-top:1vh;">
                         <h1 style="font-size: xx-large;">Asociate</h1>

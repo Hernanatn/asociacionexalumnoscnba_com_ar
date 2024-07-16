@@ -1,4 +1,4 @@
-#beneficios{
+#principal{
 
     grid-template-columns: 1fr 1fr;
     column-gap: 1vw;
@@ -60,10 +60,10 @@
 
 
 @media screen and (min-width:40em) {
-    #beneficios{
+    #principal{
         grid-template-columns: 1fr 1fr 1fr;
     }
-    #beneficios, #titular{
+    #principal, #titular{
         padding: 0px 10vw;
     }
 
@@ -73,7 +73,7 @@
     
 }
 @media screen and (min-width:60em) {
-    #beneficios, #titular{
+    #principal, #titular{
         padding: 0px 15vw;
     }
     #banner .zocalo{

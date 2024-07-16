@@ -1,4 +1,4 @@
-#asociacion{
+#principal{
     grid:
     "cuerpo cuerpo columna-2" 1fr
     "historia historia columna-2" 1fr
@@ -34,12 +34,12 @@
 
 
 @media screen and (max-width:40em) {
-    #asociacion #cuerpo{
+    #principal #cuerpo{
         padding: 5vh 5vw;
     }
 }
 @media screen and (min-width:40em) {
-    #asociacion{
+    #principal{
         padding: 0px 10vw;
     }
 
@@ -49,7 +49,7 @@
     
 }
 @media screen and (min-width:60em) {
-    #asociacion{
+    #principal{
         padding: 0px 15vw;
     }
     #banner_asociacion .zocalo{

@@ -9,35 +9,6 @@
         {{ super() }}
         {% endblock js %}
 
-        {% block pestanas %}
-                    <div class="pestana" id="pestana_la-asociacion"
-                    hx-get="/la-asociacion"
-                    hx-target="body"
-                    hx-swap="morphdom" 
-                    hx-push-url="true"
-                    preload    
-                    > <h4>La Asociación </h4></div>
-                    <div class="pestana seleccionada" id="pestana_promociones"
-                    hx-get="/promociones"
-                    hx-target="body"
-                    hx-swap="morphdom" 
-                    hx-push-url="true"
-                    preload  
-                    > <h4>Promociones</h4></div>
-                    <div class="pestana" id="pestana_beneficios"
-                    hx-get="/beneficios"
-                    hx-target="body"
-                    hx-swap="morphdom" 
-                    hx-push-url="true"
-                    preload  > <h4>Beneficios</h4></div>
-                    <div class="pestana" id="pestana_novedades"
-                    hx-get="/promociones"
-                    hx-target="body"
-                    hx-swap="morphdom" 
-                    hx-push-url="true"
-                    preload  
-                    > <h4>Novedades</h4></div>
-        {% endblock pestanas %}
         {% block contenido%}
         <div class="flex vertical" id="banner">
             <div class="zocalo flex horizontal">
@@ -46,7 +17,7 @@
             <img class="fondo" src="{{ url_for('static', filename='/img/banner-inicio.webp') }}"/>
         </div>
         <h2 id="titular">Encuentros</h2>
-        <div class="flex horizontal" id="promociones"
+        <div class="flex horizontal" id="principal"
         hx-ext="morphdom-swap"
         >
             <div class="seccion" id="quinquenales"

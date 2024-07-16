@@ -9,42 +9,14 @@
         {{ super() }}
         {% endblock js %}
 
-        {% block pestanas %}
-                    <div class="pestana seleccionada" id="pestana_la-asociacion"
-                    hx-get="/la-asociacion"
-                    hx-target="body"
-                    hx-swap="morphdom" 
-                    hx-push-url="true"
-                    preload    
-                    > <h4>La Asociación </h4></div>
-                    <div class="pestana" id="pestana_promociones"
-                    hx-get="/promociones"
-                    hx-target="body"
-                    hx-swap="morphdom" 
-                    hx-push-url="true"
-                    preload  
-                    > <h4>Promociones</h4></div>
-                    <div class="pestana" id="pestana_beneficios"
-                    hx-get="/beneficios"
-                    hx-target="body"
-                    hx-swap="morphdom" 
-                    hx-push-url="true"
-                    preload  > <h4>Beneficios</h4></div>
-                    <div class="pestana" id="pestana_novedades"
-                    hx-get="/promociones"
-                    hx-target="body"
-                    hx-swap="morphdom" 
-                    hx-push-url="true"
-                    preload  
-                    > <h4>Novedades</h4></div>
-        {% endblock pestanas %}
+
         {% block contenido%}
         <div class="flex vertical" id="banner_asociacion">
             <div class="zocalo flex horizontal">
                 <h4>Asociación</h4><h4 style="font-family: 'Bodoni', serif;">.exa</h4>
             </div>
         </div>
-        <div class="grilla" id="asociacion"
+        <div class="grilla" id="principal"
         hx-ext="morphdom-swap"
         >
             <div class="flex vertical" id="cuerpo" >

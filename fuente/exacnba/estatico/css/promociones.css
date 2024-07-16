@@ -1,4 +1,4 @@
-#promociones{
+#principal{
 
     column-gap: 1vw;
     margin-bottom: 5vh;
@@ -55,7 +55,7 @@
 
 
 @media screen and (min-width:40em) {
-    #promociones, #titular{
+    #principal, #titular{
         padding: 0px 10vw;
     }
 
@@ -65,7 +65,7 @@
     
 }
 @media screen and (min-width:60em) {
-    #promociones, #titular{
+    #principal, #titular{
         padding: 0px 15vw;
     }
     #banner .zocalo{
